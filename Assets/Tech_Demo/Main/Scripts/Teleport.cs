@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public GameObject target;
+    private bool leave;
+
+    private void Start()
     {
+        leave = true;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player") == true)
+        {
+            if (leave == true)
+            {
+                leave = false;
+                other.transform.position = target.transform.position;
+            }
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerExit(Collider other)
     {
-        
+        leave = true;
     }
 }
