@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
 
     [Header("Visuals")]
     public GameObject model;
+    public TextMeshProUGUI arrowText;
+    public TextMeshProUGUI bombText;
     public float rotatingSpeed = 2f;
 
     [Header("Movement")]
@@ -30,8 +33,9 @@ public class Player : MonoBehaviour
     {
         bow.gameObject.SetActive(false);
 
+        SetArrowText();
+        SetBombText();
         playerRigidbody = GetComponent<Rigidbody> ();
-        //targetModelRotation = Quaternion.Euler (0, 0, 0);
     }
 
     // Update is called once per frame
@@ -43,14 +47,10 @@ public class Player : MonoBehaviour
         {
             canJump = true;
         }
-        
+
+        ProcessInput();
     }
 
-    private void FixedUpdate()
-    {
-        ProcessInput();
-        
-    }
 
     void ProcessInput()
     {
@@ -102,6 +102,7 @@ public class Player : MonoBehaviour
             {
                 bow.Attack ();
                 arrowAmount--;
+                SetArrowText();
             }
         }
 
@@ -125,5 +126,16 @@ public class Player : MonoBehaviour
         bombObject.GetComponent<Rigidbody> ().AddForce (throwingDirection * throwingSpeed);
 
         bombAmount--;
+        SetBombText();
+    }
+
+    void SetArrowText()
+    {
+        arrowText.text = "Arrows: " + arrowAmount.ToString();
+    }
+
+    void SetBombText()
+    {
+        bombText.text = "Bombs: " + bombAmount.ToString();
     }
 }
