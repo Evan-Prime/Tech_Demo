@@ -37,16 +37,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
         // Raycast to identify if the player can jump.
-        RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, 1.02f))
         {
             canJump = true;
         }
-
-        //model.transform.rotation = Quaternion.Lerp(model.transform.rotation, targetModelRotation, Time.deltaTime * rotatingSpeed);
         
     }
 

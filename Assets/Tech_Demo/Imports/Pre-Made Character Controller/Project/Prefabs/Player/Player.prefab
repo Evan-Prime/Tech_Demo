@@ -877,6 +877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6938597010315804558}
   - component: {fileID: 6938597010315804557}
+  - component: {fileID: 2047653531191513369}
   - component: {fileID: 6938597010315804552}
   - component: {fileID: 6938597010315804559}
   m_Layer: 0
@@ -916,7 +917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 6938597010268160769}
   rotatingSpeed: 5
-  movingVelocity: 5
+  speed: 0
   jumpingVelocity: 5
   sword: {fileID: 6938597008412632257}
   bow: {fileID: 6938597008494003257}
@@ -924,6 +925,18 @@ MonoBehaviour:
   bombPrefab: {fileID: 5822957473307045667, guid: c23fdbb9c73ad2044a94d0aa4e1f0e09, type: 3}
   bombAmount: 5
   throwingSpeed: 200
+--- !u!114 &2047653531191513369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6938597010315804556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58deb7992fe58b34e876dfdb8b1bfba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &6938597010315804552
 Rigidbody:
   m_ObjectHideFlags: 0
