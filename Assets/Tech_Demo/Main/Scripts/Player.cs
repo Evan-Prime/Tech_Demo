@@ -138,4 +138,21 @@ public class Player : MonoBehaviour
     {
         bombText.text = "Bombs: " + bombAmount.ToString();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Arrow"))
+        {
+            other.gameObject.SetActive(false);
+            arrowAmount = arrowAmount + 1;
+            SetArrowText();
+        }
+
+        if (other.gameObject.CompareTag("Bomb"))
+        {
+            other.gameObject.SetActive(false);
+            bombAmount = bombAmount + 1;
+            SetBombText();
+        }
+    }
 }
