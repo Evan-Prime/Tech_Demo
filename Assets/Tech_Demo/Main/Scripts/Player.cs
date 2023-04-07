@@ -23,15 +23,17 @@ public class Player : MonoBehaviour
     public GameObject bombPrefab;
     public int bombAmount = 5;
     public float throwingSpeed;
+    public AudioClip pickUpClip;
 
     private Rigidbody playerRigidbody;
     private bool canJump;
-    private Quaternion targetModelRotation;
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
         bow.gameObject.SetActive(false);
+        audioManager = FindObjectOfType<AudioManager>();
 
         SetArrowText();
         SetBombText();
@@ -144,6 +146,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Arrow"))
         {
             other.gameObject.SetActive(false);
+            audioManager.PlayAudio(pickUpClip);
             arrowAmount = arrowAmount + 1;
             SetArrowText();
         }
@@ -151,6 +154,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Bomb"))
         {
             other.gameObject.SetActive(false);
+            audioManager.PlayAudio(pickUpClip);
             bombAmount = bombAmount + 1;
             SetBombText();
         }

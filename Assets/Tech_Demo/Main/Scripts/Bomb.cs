@@ -10,9 +10,11 @@ public class
     public float radius = 3f;
     public float explosionDuration = 0.25f;
     public GameObject explosionModel;
+    public AudioClip explosionClip;
 
     private float explosionTimer;
     private bool exploded;
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class
         explosionTimer = duration;
         explosionModel.transform.localScale = Vector3.one * radius;
         explosionModel.SetActive(false);
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -45,9 +48,9 @@ public class
     private IEnumerator Explode ()
     {
         explosionModel.SetActive(true);
-
+        audioManager.PlayAudio(explosionClip);
         yield return new WaitForSeconds (explosionDuration);
-
+        
         Destroy(gameObject);
     }
 }

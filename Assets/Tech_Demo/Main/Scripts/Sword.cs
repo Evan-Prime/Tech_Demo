@@ -8,12 +8,13 @@ public class Sword : MonoBehaviour
     public float swingingSpeed = 2f;
     public float cooldownSpeed = 2f;
     public float attackDuration = 0.35f;
-
     public float cooldownDuration = 0.5f;
+    public AudioClip swingClip;
 
     private Quaternion targetRotation;
     private float cooldownTimer;
     private bool isAttacking;
+    private AudioManager audioManager;
 
     public bool IsAttacking
     {
@@ -27,6 +28,7 @@ public class Sword : MonoBehaviour
     void Start()
     {
         targetRotation = Quaternion.Euler(0,0,0);
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -43,6 +45,8 @@ public class Sword : MonoBehaviour
         {
             return;
         }
+
+        audioManager.PlayAudio(swingClip);
 
         targetRotation = Quaternion.Euler (90, 0, 0);
 
