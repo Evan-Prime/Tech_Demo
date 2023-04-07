@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     private Rigidbody playerRigidbody;
     private bool canJump;
     private Quaternion targetModelRotation;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
         SetArrowText();
         SetBombText();
-        playerRigidbody = GetComponent<Rigidbody> ();
+        playerRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey("w"))
         {
-            
+
             transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
 
         }
@@ -89,18 +89,18 @@ public class Player : MonoBehaviour
         // Check equipment interaction.
         if (Input.GetKeyDown("e"))
         {
-            sword.gameObject.SetActive (true);
-            bow.gameObject.SetActive (false);
-            sword.Attack ();
+            sword.gameObject.SetActive(true);
+            bow.gameObject.SetActive(false);
+            sword.Attack();
         }
 
         if (Input.GetKeyDown("f"))
         {
-            sword.gameObject.SetActive (false);
-            bow.gameObject.SetActive (true);
+            sword.gameObject.SetActive(false);
+            bow.gameObject.SetActive(true);
             if (arrowAmount > 0)
             {
-                bow.Attack ();
+                bow.Attack();
                 arrowAmount--;
                 SetArrowText();
             }
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown("q"))
         {
-            ThrowBomb ();
+            ThrowBomb();
         }
     }
 
@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
 
         Vector3 throwingDirection = (model.transform.forward + Vector3.up).normalized;
 
-        bombObject.GetComponent<Rigidbody> ().AddForce (throwingDirection * throwingSpeed);
+        bombObject.GetComponent<Rigidbody>().AddForce(throwingDirection * throwingSpeed);
 
         bombAmount--;
         SetBombText();
