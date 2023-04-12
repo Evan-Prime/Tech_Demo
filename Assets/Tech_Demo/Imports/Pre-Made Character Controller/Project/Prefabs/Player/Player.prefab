@@ -135,6 +135,7 @@ MonoBehaviour:
   cooldownSpeed: 8
   attackDuration: 0.25
   cooldownDuration: 0.25
+  swingClip: {fileID: 8300000, guid: b22f67dab3d78b949b4ea5835d0c2e2a, type: 3}
 --- !u!65 &6938597008412632256
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -197,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 7808160219364988959, guid: ac85d34b00d7066429e8f3a97ae52551, type: 3}
+  shootClip: {fileID: 8300000, guid: 86f1ee650e2a7c44dbd56eaec8a37f8c, type: 3}
 --- !u!1 &6938597008703252969
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +929,7 @@ MonoBehaviour:
   bombPrefab: {fileID: 5822957473307045667, guid: c23fdbb9c73ad2044a94d0aa4e1f0e09, type: 3}
   bombAmount: 5
   throwingSpeed: 200
+  pickUpClip: {fileID: 8300000, guid: 711febc9cc2ea7047aa481ec84de1305, type: 3}
 --- !u!114 &2047653531191513369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,7 +951,7 @@ Rigidbody:
   m_GameObject: {fileID: 6938597010315804556}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0

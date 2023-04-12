@@ -6,10 +6,14 @@ public class Teleport : MonoBehaviour
 {
 
     public GameObject target;
+    public AudioClip portClip;
+
+    private AudioManager audioManager;
     private bool leave;
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         leave = true;
     }
 
@@ -19,6 +23,7 @@ public class Teleport : MonoBehaviour
         {
             if (leave == true)
             {
+                audioManager.PlayAudio(portClip);
                 leave = false;
                 other.transform.position = target.transform.position;
             }

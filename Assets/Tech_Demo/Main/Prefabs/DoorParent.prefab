@@ -407,3 +407,4 @@ MonoBehaviour:
   rightTarget: {fileID: 3755243970274876032}
   leftTarget: {fileID: 3755243970373556503}
   speed: 2
+  doorClip: {fileID: 8300000, guid: a36451b16485fe34e876cb3bdc7fabe1, type: 3}

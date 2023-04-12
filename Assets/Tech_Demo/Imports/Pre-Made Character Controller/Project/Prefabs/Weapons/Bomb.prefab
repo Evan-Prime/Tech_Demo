@@ -331,3 +331,4 @@ MonoBehaviour:
   radius: 5
   explosionDuration: 0.25
   explosionModel: {fileID: 5822957473083467996}
+  explosionClip: {fileID: 8300000, guid: e7eaf2b80053f3448b07243bf46d9fcd, type: 3}

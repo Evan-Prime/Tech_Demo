@@ -10,6 +10,9 @@ public class DoorTigger : MonoBehaviour
     public Transform rightTarget;
     public Transform leftTarget;
     public float speed;
+    public AudioClip doorClip;
+
+    private AudioManager audioManager;
     bool isOpening;
 
     Vector3 rightStart;
@@ -18,6 +21,7 @@ public class DoorTigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         rightStart = rightDoor.transform.position;
         leftStart = leftDoor.transform.position;
     }
@@ -53,6 +57,7 @@ public class DoorTigger : MonoBehaviour
     {
         if (other.CompareTag("Player") == true)
         {
+            audioManager.PlayAudio(doorClip);
             isOpening = true;
         }
     }
